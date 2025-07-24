@@ -1,0 +1,16 @@
+{
+  "name": "cdk-docker-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "predeploy": "poetry export -f requirements.txt --output src/requirements.txt",
+    "postdeploy": "rm -f src/requirements.txt",
+    "deploy": "cdk deploy",
+    "synth": "cdk synth",
+    "dev": "sam local start-api -t ./cdk.out/CdkDockerDemoStack.template.json"
+  },
+  "devDependencies": {
+    "aws-cdk": "^2.1007.0"
+  },
+  "packageManager": "yarn@1.22.19"
+}

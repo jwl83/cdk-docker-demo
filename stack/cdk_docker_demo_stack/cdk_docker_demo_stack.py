@@ -20,7 +20,7 @@ class CdkDockerDemoStack(Stack):
         ecr_repo = _ecr.Repository(
             self,
             "CdkEcrRepo",
-            repository_name="cdk-docker-demo",
+            # repository_name="cdk-docker-demo",
         )
 
         # Create a Docker image asset from the source directory

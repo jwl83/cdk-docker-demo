@@ -1,12 +1,22 @@
 #!/usr/bin/env python3
 import os
 
-import aws_cdk as cdk
+from aws_cdk import (
+    App,
+    aws_s3 as _s3,
+    app_staging_synthesizer_alpha as _synth,
+)
 
 from cdk_docker_demo_stack.cdk_docker_demo_stack import CdkDockerDemoStack
 
 
-app = cdk.App()
+app = App(
+    default_stack_synthesizer=_synth.AppStagingSynthesizer.default_resources(
+        app_id="data-api",
+        staging_bucket_encryption=_s3.BucketEncryption.S3_MANAGED,
+    )
+)
+
 CdkDockerDemoStack(app, "CdkDockerDemoStack",
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,

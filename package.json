@@ -5,7 +5,7 @@
   "scripts": {
     "predeploy": "poetry export -f requirements.txt --output src/requirements.txt",
     "postdeploy": "rm -f src/requirements.txt",
-    "deploy": "cdk deploy",
+    "deploy": "cdk deploy --all",
     "synth": "cdk synth",
     "dev": "sam local start-api -t ./cdk.out/CdkDockerDemoStack.template.json"
   },

@@ -137,6 +137,25 @@ tomlkit = ["tomlkit (>=0.11.8)"]
 ujson = ["ujson (>=5.7.0)"]
 
 [[package]]
+name = "cdk-ecr-deployment"
+version = "4.0.1"
+description = "CDK construct to deploy docker image to Amazon ECR"
+optional = false
+python-versions = "~=3.9"
+groups = ["stack"]
+files = [
+    {file = "cdk_ecr_deployment-4.0.1-py3-none-any.whl", hash = "sha256:3faba1a64d341c43f2e8e42a97897c8bfe475bc1f040c3f0fd03f2acf6ccce36"},
+    {file = "cdk_ecr_deployment-4.0.1.tar.gz", hash = "sha256:f4ebcb6fb11ad9d4ec210eae0e13fe3466b3df1f197ead92bd5783cba999d7e7"},
+]
+
+[package.dependencies]
+aws-cdk-lib = ">=2.80.0,<3.0.0"
+constructs = ">=10.0.5,<11.0.0"
+jsii = ">=1.109.0,<2.0.0"
+publication = ">=0.0.3"
+typeguard = ">=2.13.3,<4.3.0"
+
+[[package]]
 name = "constructs"
 version = "10.4.2"
 description = "A programming model for software-defined state"
@@ -292,4 +311,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12,<4.0"
-content-hash = "1b99f9aea7d9248765de8104b3746e0b42d3c25579649c833903c96ad0eaf927"
+content-hash = "b3a17c2d9c6e42635f2386176c7a0cee0672a6dfc606d019c11fc20f50127724"

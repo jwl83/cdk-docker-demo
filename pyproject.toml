@@ -26,6 +26,7 @@ aws-cdk-lib = "^2.189.0"
 constructs = "^10.4.2"
 aws-cdk-aws-lambda-python-alpha = "^2.189.0a0"
 jsii = "^1.111.0"
+cdk-ecr-deployment = "^4.0.1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.11.5"

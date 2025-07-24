@@ -19,15 +19,27 @@ class CdkDockerDemoStack(Stack):
         #     handler='hello.handler',
         # )
 
+        image_asset = _ecr_assets.DockerImageAsset(self, "CDKDockerImageSrc",
+            directory="src",
+            # cmd=["cdk_docker_demo.hello.handler"],
+            platform=_ecr_assets.Platform.LINUX_AMD64,
+            asset_name="cdk-docker-demo--asset-name",
+        )
+
         hello_handler = _lambda.DockerImageFunction(
             self,
             'HelloDockerHandler',
-            code=_lambda.DockerImageCode.from_image_asset(
-                directory="src",
+            # code=_lambda.DockerImageCode.from_image_asset(
+            #     directory="src",
+            #     cmd=["cdk_docker_demo.hello.handler"],
+            #     platform=_ecr_assets.Platform.LINUX_AMD64,
+            #     display_name="cdk_docker_demo",
+            # ),
+            code=_lambda.DockerImageCode.from_ecr(
+                repository=image_asset.repository,
+                tag_or_digest=image_asset.image_tag,
                 cmd=["cdk_docker_demo.hello.handler"],
-                platform=_ecr_assets.Platform.LINUX_AMD64,
-                display_name="cdk_docker_demo",
-            ),
+            )
         )
 
         _apigateway.LambdaRestApi(

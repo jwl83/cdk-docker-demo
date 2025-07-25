@@ -12,7 +12,7 @@ from cdk_docker_demo_stack.cdk_docker_demo_stack import CdkDockerDemoStack
 
 app = App(
     default_stack_synthesizer=_synth.AppStagingSynthesizer.default_resources(
-        app_id="data-api",
+        app_id="cdk-docker-demo-app",
         staging_bucket_encryption=_s3.BucketEncryption.S3_MANAGED,
     )
 )

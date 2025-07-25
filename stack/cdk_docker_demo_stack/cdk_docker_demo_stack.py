@@ -26,7 +26,7 @@ class CdkDockerDemoStack(Stack):
                 directory="src",
                 cmd=["cdk_docker_demo.hello.handler"],
                 platform=_ecr_assets.Platform.LINUX_AMD64,
-                asset_name="data-api"
+                asset_name="cdk-docker-demo-handler"
             ),
         )
 
